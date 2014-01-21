@@ -1,4 +1,14 @@
-# hybrid.vim
+# hybrid_reverse.vim
+
+This is customized version of w0ng's Hybrid color scheme.
+
+Purple and Red are reversed, so it looks more like tommorow-night color scheme.
+
+It has bold font enabled by default for some highlighting groups (Function, Type, Statement...)
+
+This can be easily disabled with setting this variable before setting the colorscheme in .vimrc
+
+        let g:disable_bold_font = 1
 
 A dark colourscheme for Vim that combines the:
 
@@ -28,7 +38,7 @@ the way that it was intended, it is highly recommended that you:
 1.  Add these colours to ~/.Xresources:
 
         https://gist.github.com/3278077
-        
+
     ![palette](http://dl.dropbox.com/u/23813887/Xresources-palette.png)
 
 2.  Use Xresources colours by setting in ~/.vimrc:

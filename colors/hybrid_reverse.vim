@@ -1,7 +1,7 @@
-" File:       hybrid.vim
+" File:       hybrid_reverse.vim
 " Maintainer: Andrew Wong (w0ng)
 " URL:        https://github.com/w0ng/vim-hybrid
-" Modified:   27 Jan 2013 07:33 AM AEST
+" Modified:   27 Jan 2013 07:33 AM AEST by Kristijan Husak (kris89) <husakkristijan@gmail.com>
 " License:    MIT
 
 " Description:"{{{
@@ -64,6 +64,10 @@ if !exists("g:hybrid_use_iTerm_colors")
   let g:hybrid_use_iTerm_colors = 0
 endif
 
+if !exists("g:disable_bold_font")
+    let g:disable_bold_font = 0
+endif
+
 set background=dark
 hi clear
 
@@ -71,7 +75,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "hybrid"
+let colors_name = "hybrid_reverse"
 
 "}}}
 " GUI And Cterm Palettes:"{{{
@@ -131,9 +135,9 @@ else
     let s:selection  = "13"
     let s:line       = "0"
     let s:comment    = "7"
-    let s:red        = "1"   
-    let s:orange     = "9"   
-    let s:yellow     = "3"   
+    let s:red        = "1"
+    let s:orange     = "9"
+    let s:yellow     = "3"
     let s:green      = "2"
     let s:aqua       = "6"
     let s:blue       = "4"
@@ -280,6 +284,13 @@ else
   let s:sp_darkpurple = ""
 endif
 
+" Set bold font depending on options
+if g:disable_bold_font == 0
+    let s:fg_bold = s:fmt_bold
+else
+    let s:fg_bold = s:fmt_none
+endif
+
 "}}}
 " Vim Highlighting: (see :help highlight-groups)"{{{
 " ----------------------------------------------------------------------------
@@ -340,17 +351,17 @@ endif
 " ----------------------------------------------------------------------------
 exe "hi! Comment"         .s:fg_comment     .s:bg_none        .s:fmt_none
 
-exe "hi! Constant"        .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! Constant"        .s:fg_purple      .s:bg_none        .s:fmt_none
 exe "hi! String"          .s:fg_green       .s:bg_none        .s:fmt_none
 "		Character"
 "		Number"
 "		Boolean"
 "		Float"
 
-exe "hi! Identifier"      .s:fg_purple      .s:bg_none        .s:fmt_none
-exe "hi! Function"        .s:fg_yellow      .s:bg_none        .s:fmt_none
+exe "hi! Identifier"      .s:fg_red         .s:bg_none        .s:fmt_none
+exe "hi! Function"        .s:fg_yellow      .s:bg_none        .s:fg_bold
 
-exe "hi! Statement"       .s:fg_blue        .s:bg_none        .s:fmt_none
+exe "hi! Statement"       .s:fg_blue        .s:bg_none        .s:fg_bold
 "		Conditional"
 "		Repeat"
 "		Label"
@@ -358,13 +369,13 @@ exe "hi! Operator"        .s:fg_aqua        .s:bg_none        .s:fmt_none
 "		Keyword"
 "		Exception"
 
-exe "hi! PreProc"         .s:fg_aqua        .s:bg_none        .s:fmt_none
+exe "hi! PreProc"         .s:fg_aqua        .s:bg_none        .s:fg_bold
 "		Include"
 "		Define"
 "		Macro"
 "		PreCondit"
 
-exe "hi! Type"            .s:fg_orange      .s:bg_none        .s:fmt_none
+exe "hi! Type"            .s:fg_orange      .s:bg_none        .s:fg_bold
 "		StorageClass"
 exe "hi! Structure"       .s:fg_aqua        .s:bg_none        .s:fmt_none
 "		Typedef"
@@ -380,9 +391,9 @@ exe "hi! Underlined"      .s:fg_blue        .s:bg_none        .s:fmt_none
 
 exe "hi! Ignore"          .s:fg_none        .s:bg_none        .s:fmt_none
 
-exe "hi! Error"           .s:fg_red         .s:bg_darkred     .s:fmt_undr
+exe "hi! Error"           .s:fg_purple      .s:bg_darkred     .s:fmt_undr
 
-exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fmt_none
+exe "hi! Todo"            .s:fg_addfg       .s:bg_none        .s:fg_bold
 
 " Quickfix window highlighting
 exe "hi! qfLineNr"        .s:fg_yellow      .s:bg_none        .s:fmt_none
