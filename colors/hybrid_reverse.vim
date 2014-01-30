@@ -64,8 +64,8 @@ if !exists("g:hybrid_use_iTerm_colors")
   let g:hybrid_use_iTerm_colors = 0
 endif
 
-if !exists("g:disable_bold_font")
-    let g:disable_bold_font = 0
+if !exists("g:enable_bold_font")
+    let g:enable_bold_font = 0
 endif
 
 set background=dark
@@ -285,7 +285,7 @@ else
 endif
 
 " Set bold font depending on options
-if g:disable_bold_font == 0
+if g:enable_bold_font == 1
     let s:fg_bold = s:fmt_bold
 else
     let s:fg_bold = s:fmt_none

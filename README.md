@@ -4,11 +4,10 @@ This is customized version of w0ng's Hybrid color scheme.
 
 Purple and Red are reversed, so it looks more like tommorow-night color scheme.
 
-It has bold font enabled by default for some highlighting groups (Function, Type, Statement...)
+There is also option to set bold font for some highlighting groups (Function, Type, Statement...).
+It is disabled by default. If you want to enable it put this in your .vimrc before setting colorscheme:
 
-This can be easily disabled with setting this variable before setting the colorscheme in .vimrc
-
-        let g:disable_bold_font = 1
+        let g:enable_bold_font = 1
 
 A dark colourscheme for Vim that combines the:
 
